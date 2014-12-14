@@ -1,0 +1,19 @@
+{
+    "name": "rawphp/raw-container",
+    "description": "A service container.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tom Kaczocha",
+            "email": "tom@rawphp.org"
+        }
+    ],
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "RawPHP\\RawContainer\\": "src/RawPHP/RawContainer/"
+        }
+    },
+    "minimum-stability": "dev"
+}
