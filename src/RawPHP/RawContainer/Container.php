@@ -29,6 +29,8 @@ use InvalidArgumentException;
 use RawPHP\RawContainer\Contract\IBindingsBuilder;
 use RawPHP\RawContainer\Contract\IContainer;
 use RawPHP\RawContainer\Exception\BindingResolutionException;
+use RawPHP\RawSupport\Util;
+use ReflectionClass;
 use ReflectionFunction;
 use ReflectionMethod;
 use ReflectionParameter;
@@ -433,7 +435,7 @@ class Container implements ArrayAccess, IContainer
             return $concrete( $this, $parameters );
         }
 
-        $reflector = new \ReflectionClass( $concrete );
+        $reflector = new ReflectionClass( $concrete );
 
         if ( !$reflector->isInstantiable() )
         {
@@ -859,9 +861,9 @@ class Container implements ArrayAccess, IContainer
      */
     public function getContextualConcrete( $abstract )
     {
-        if ( isset( $this->contextual[ last( $this->buildStack ) ][ $abstract ] ) )
+        if ( isset( $this->contextual[ Util::last( $this->buildStack ) ][ $abstract ] ) )
         {
-            return $this->contextual[ last( $this->buildStack ) ][ $abstract ];
+            return $this->contextual[ Util::last( $this->buildStack ) ][ $abstract ];
         }
 
         return '';
