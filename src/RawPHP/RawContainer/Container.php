@@ -22,6 +22,7 @@
 
 namespace RawPHP\RawContainer;
 
+use ArrayAccess;
 use Closure;
 use Exception;
 use InvalidArgumentException;
@@ -37,7 +38,7 @@ use ReflectionParameter;
  *
  * @package RawPHP\RawContainer
  */
-class Container implements IContainer
+class Container implements ArrayAccess, IContainer
 {
     /** @var static */
     protected static $instance;
@@ -348,9 +349,9 @@ class Container implements IContainer
     public function refresh( $abstract, $target, $method )
     {
         return $this->rebinding( $abstract, function ( $app, $instance ) use ( $target, $method )
-            {
-                $target->{$method}( $instance );
-            }
+        {
+            $target->{$method}( $instance );
+        }
         );
     }
 

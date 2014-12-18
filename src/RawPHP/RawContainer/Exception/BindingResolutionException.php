@@ -22,11 +22,13 @@
 
 namespace RawPHP\RawContainer\Exception;
 
+use RawPHP\RawSupport\Exception\RawException;
+
 /**
  * Class BindingResolutionException
  *
  * @package RawPHP\RawContainer\Exception
  */
-class BindingResolutionException extends \Exception
+class BindingResolutionException extends RawException
 {
 }
