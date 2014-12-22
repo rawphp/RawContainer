@@ -866,7 +866,7 @@ class Container implements ArrayAccess, IContainer
             return $this->contextual[ Util::last( $this->buildStack ) ][ $abstract ];
         }
 
-        return '';
+        return NULL;
     }
 
     /**
