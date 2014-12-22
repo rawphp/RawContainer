@@ -95,4 +95,24 @@ class ContainerTest extends PHPUnit_Framework_TestCase
 
         $this->assertSame( $item1, $item2 );
     }
+
+    /**
+     * Test set alias.
+     */
+    public function testAliasItem()
+    {
+        $this->container->bindShared( 'RawPHP\RawDateTime\Contract\IDateTime', function ()
+        {
+            return new DateTime();
+        }
+        );
+
+        $this->container->alias( 'RawPHP\RawDateTime\Contract\IDateTime', 'date' );
+
+        $item = $this->container->make( 'date' );
+
+        $this->assertNotNull( $item );
+        $this->assertInstanceOf( 'RawPHP\RawDateTime\Contract\IDateTime', $item );
+        $this->assertInstanceOf( 'RawPHP\RawDateTime\DateTime', $item );
+    }
 }

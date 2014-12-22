@@ -156,12 +156,12 @@ interface IContainer
     /**
      * Alias a type to a different name.
      *
-     * @param  string $abstract
+     * @param  string $class
      * @param  string $alias
      *
      * @return IContainer
      */
-    public function alias( $abstract, $alias );
+    public function alias( $class, $alias );
 
     /**
      * Bind a new callback to an abstract's rebind event.

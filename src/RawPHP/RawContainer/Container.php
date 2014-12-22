@@ -307,14 +307,14 @@ class Container implements ArrayAccess, IContainer
     /**
      * Alias a type to a different name.
      *
-     * @param  string $abstract
+     * @param  string $class
      * @param  string $alias
      *
      * @return IContainer
      */
-    public function alias( $abstract, $alias )
+    public function alias( $class, $alias )
     {
-        $this->aliases[ $alias ] = $abstract;
+        $this->aliases[ $alias ] = $class;
 
         return $this;
     }
